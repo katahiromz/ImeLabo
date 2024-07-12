@@ -9,6 +9,9 @@ cmake_minimum_required(VERSION 3.6)
 # project name and languages
 project(ImeLabo VERSION 0.1 LANGUAGES CXX RC)
 
+# CMake build type
+message(STATUS "CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
+
 # statically linking
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     # using Clang
