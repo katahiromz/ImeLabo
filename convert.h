@@ -1,5 +1,6 @@
 #pragma once
 
+// nlohmannさんのJSONライブラリを使用する。
 #include "nlohmann/json.hpp"
 using json = nlohmann::json;
 
@@ -42,12 +43,6 @@ struct CMZDictSet
             m_bLoaded = FALSE;
         }
     }
-};
-
-struct MZ_RESULT_CLAUSE
-{
-    std::wstring pre;
-    std::vector<std::wstring> post;
 };
 
 // IME変換前に必要な事前変換。

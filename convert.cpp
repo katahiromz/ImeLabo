@@ -8,8 +8,9 @@
 #include "client.h"
 #include "convert.h"
 
-BOOL g_bDotIsMaru = FALSE;
-BOOL g_bCommaIsTen = FALSE;
+// TODO: 必要な変数を追加して下さい。
+BOOL g_bDotIsMaru = FALSE; // ドット（ピリオド）を句点に変換する。
+BOOL g_bCommaIsTen = FALSE; // カンマを読点に変換する。
 
 // 変換に必要な初期化を行う関数。
 BOOL MZ_LoadDictSet(void)
@@ -60,7 +61,7 @@ MZ_RealImeConvert(json& root, const std::string& utf8_input)
 {
     root.clear();
 
-#ifdef GOOGLE_INSIDE
+#ifdef GOOGLE_INSIDE // サーバー側でGoogleを使用するか？
     std::string utf8_result;
     MZ_ImeQuery(utf8_result, utf8_input.c_str(), GOOGLE_JAPANESE_CONVERT_URL);
     try
@@ -121,6 +122,7 @@ MZ_ImeConvert(const std::wstring& text, json *pjson)
     }
     catch (...)
     {
+        printf("Failed to dump a json\n");
         wide_result.clear(); // 失敗。
     }
 
