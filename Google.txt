@@ -1,5 +1,5 @@
-(「Google CGI API for Japanese Input」( https://www.google.co.jp/ime/cgiapi.html ) よりダウンロードしました)
-
+﻿(このファイルの内容は、「Google CGI API for Japanese Input」( https://www.google.co.jp/ime/cgiapi.html ) よりダウンロードしました)
+---
 Google 日本語入力
 
 Google CGI API for Japanese Input
