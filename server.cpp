@@ -221,7 +221,7 @@ JustMakeResult(const std::wstring& wide)
     std::wstring result;
     for (auto& param : params)
     {
-        printf("param: '%s'\n", MZ_AnsiFromWide(param.c_str()).c_str());
+        printf("param: '%s'\n", MZ_ConFromWide(param.c_str()).c_str());
 
         std::vector<std::wstring> pair;
         mstr_split(pair, param, L"=");
@@ -240,7 +240,7 @@ JustMakeResult(const std::wstring& wide)
         puts("error");
     }
 
-    printf("result: '%s'\n", MZ_AnsiFromWide(result.c_str()).c_str());
+    printf("result: '%s'\n", MZ_ConFromWide(result.c_str()).c_str());
 
     utf8 = MZ_Utf8FromWide(result.c_str());
     return utf8;
@@ -269,8 +269,7 @@ INT DoHttpResponse(CSocket& ListenSocket, CSocket& ClientSocket, const char *inp
         return 0;
 
     std::wstring wide = MZ_WideFromUtf8(decoded.c_str());
-    std::string ansi = MZ_AnsiFromWide(wide.c_str());
-    printf("ansi: %s\n", ansi.c_str());
+    printf("decoded: %s\n", MZ_ConFromWide(wide.c_str()).c_str());
 
     std::string result = JustMakeResult(wide);
 

@@ -16,10 +16,10 @@ auto g_url_base = GOOGLE_JAPANESE_CONVERT_URL;
 static BOOL
 MZ_ImeConvertTest(const char *utf8_text, const char *url_base)
 {
-    printf("utf8_text: '%s'\n", MZ_AnsiFromUtf8(utf8_text).c_str());
+    printf("utf8_text: '%s'\n", MZ_ConFromUtf8(utf8_text).c_str());
     std::string utf8_result;
     HRESULT hr = MZ_ImeQuery(utf8_result, utf8_text, url_base);
-    printf("MZ_ImeQuery: 0x%08lX: '%s'\n", hr, MZ_AnsiFromUtf8(utf8_result.c_str()).c_str());
+    printf("MZ_ImeQuery: 0x%08lX: '%s'\n", hr, MZ_ConFromUtf8(utf8_result.c_str()).c_str());
     return SUCCEEDED(hr);
 }
 

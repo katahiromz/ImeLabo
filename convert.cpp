@@ -89,7 +89,7 @@ MZ_RealImeConvert(json& root, const std::string& utf8_input)
 std::wstring
 MZ_ImeConvert(const std::wstring& text, json *pjson)
 {
-    printf("DoConvertText('%s')\n", MZ_AnsiFromWide(text.c_str()).c_str());
+    printf("DoConvertText('%s')\n", MZ_ConFromWide(text.c_str()).c_str());
 
     std::wstring input = text;
     mstr_trim(input, L" \t\r\n　");

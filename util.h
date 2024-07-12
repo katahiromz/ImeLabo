@@ -28,6 +28,17 @@ std::string MZ_Utf8FromAnsi(const char *ansi);
 #define MZ_Utf8FromWide(pszWide) MZ_AnsiFromWide((pszWide), CP_UTF8)
 #define MZ_WideFromUtf8(pszUtf8) MZ_WideFromAnsi((pszUtf8), CP_UTF8)
 
+// コンソール出力用の変換。
+#ifdef CONSOLE_IS_UTF8
+    #define MZ_ConFromAnsi(ansi) MZ_Utf8FromAnsi(ansi)
+    #define MZ_ConFromWide(wide) MZ_Utf8FromWide(wide)
+    #define MZ_ConFromUtf8(utf8) std::string(utf8)
+#else
+    #define MZ_ConFromAnsi(ansi) std::string(ansi)
+    #define MZ_ConFromWide(wide) MZ_AnsiFromWide(wide)
+    #define MZ_ConFromUtf8(utf8) MZ_AnsiFromUtf8(utf8)
+#endif
+
 // 文字種変換。
 std::wstring MZ_LCMapText(LPCWSTR text, DWORD dwFlags);
 

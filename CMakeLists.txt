@@ -47,6 +47,13 @@ if(GOOGLE_INSIDE)
 endif()
 message(STATUS "GOOGLE_INSIDE = ${GOOGLE_INSIDE}")
 
+# CONSOLE_IS_UTF8 option
+option(CONSOLE_IS_UTF8 "Console is UTF-8 output" OFF)
+if(CONSOLE_IS_UTF8)
+    add_definitions(-DCONSOLE_IS_UTF8)
+endif()
+message(STATUS "CONSOLE_IS_UTF8 = ${CONSOLE_IS_UTF8}")
+
 ##############################################################################
 
 # server.exe
